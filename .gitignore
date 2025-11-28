@@ -28,3 +28,6 @@
 *.exe
 *.out
 *.app
+/.vs
+/CS2_External/x64
+/x64
