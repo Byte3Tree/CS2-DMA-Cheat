@@ -94,7 +94,7 @@ bool CGame::SetForceJump(int value)
 
 uint64_t cbSize = 0x80000;
 //callback for VfsFileListU
-VOID cbAddFile(_Inout_ HANDLE h, _In_ LPSTR uszName, _In_ ULONG64 cb, _In_opt_ PVMMDLL_VFS_FILELIST_EXINFO pExInfo)
+VOID cbAddFile(_Inout_ HANDLE h, _In_ LPCSTR uszName, _In_ ULONG64 cb, _In_opt_ PVMMDLL_VFS_FILELIST_EXINFO pExInfo)
 {
 	if (strcmp(uszName, "dtb.txt") == 0)
 		cbSize = cb;

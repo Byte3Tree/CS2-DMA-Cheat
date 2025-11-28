@@ -75,8 +75,17 @@ public:
 	StatusCode Attach(std::string ProcessName)
 	{
 		this->AttachProcessName = ProcessName;
-		LPSTR args[] = { (LPSTR)"",(LPSTR)"-device", (LPSTR)"FPGA",(LPSTR)"-norefresh" };
-		this->HANDLE = VMMDLL_Initialize(3, args);
+		//LPSTR args[] = { (LPSTR)"",(LPSTR)"-device", (LPSTR)"FPGA",(LPSTR)"-norefresh" };
+		//this->HANDLE = VMMDLL_Initialize(3, args);
+		std::vector<LPCSTR> args = {
+"",
+"-device", "pmem",
+"-remote", "rpc://insecure:192.168.8.110",
+"-disable-python",
+"-v",
+"-printf"
+		};
+		this->HANDLE = VMMDLL_Initialize((DWORD)args.size(), args.data());
 
 		if (this->HANDLE) {
 			SIZE_T pcPIDs;

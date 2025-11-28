@@ -5,11 +5,15 @@ using namespace rapidjson;
 bool Offset::UpdateOffsets()
 {
 	std::ifstream offsetsIfstream("offsets.json");
+	if(offsetsIfstream.fail())
+		return false;
 	IStreamWrapper offsetsJsonisw(offsetsIfstream);
 	Document offsets;
 	offsets.ParseStream<0>(offsetsJsonisw);
 
-	std::ifstream clientIfstream("client.dll.json");
+	std::ifstream clientIfstream("client_dll.json");
+	if(clientIfstream.fail())
+		return false;
 	IStreamWrapper clientisw(clientIfstream);
 	Document client;
 	client.ParseStream<0>(clientisw);
