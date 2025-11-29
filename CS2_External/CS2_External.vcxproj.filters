@@ -160,6 +160,12 @@
     <ClInclude Include="KMbox\kmbox_b.hpp">
       <Filter>KmBox</Filter>
     </ClInclude>
+    <ClInclude Include="client_dll.hpp">
+      <Filter>Cheats\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="offsets.hpp">
+      <Filter>Cheats\Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OS-ImGui\imgui\imgui.cpp">

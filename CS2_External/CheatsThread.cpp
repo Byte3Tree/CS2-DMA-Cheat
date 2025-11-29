@@ -48,7 +48,7 @@ bool isSameCEntity(std::vector<CEntity>list1, std::vector<CEntity>list2) {
 VOID UpdatePlayer(int index) {
 	CEntity Entity;
 	DWORD64 EntityAddress = 0;
-	if (!ProcessMgr.ReadMemory<DWORD64>(gGame.GetEntityListEntry() + (index + 1) * 0x78, EntityAddress))
+	if (!ProcessMgr.ReadMemory<DWORD64>(gGame.GetEntityListEntry() + (index + 1) * 112, EntityAddress))
 		return;
 	if (EntityAddress == LocalEntityPlayer.Controller.Address)
 	{

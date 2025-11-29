@@ -26,30 +26,46 @@ bool CEntity::UpdatePawn(const DWORD64& PlayerPawnAddress)
 		return false;
 	this->Pawn.Address = PlayerPawnAddress;
 
-	if (!this->Pawn.GetCameraPos())
-		return false;
-	if (!this->Pawn.GetPos())
-		return false;
-	if (!this->Pawn.GetViewAngle())
-		return false;
-	if (!this->Pawn.GetWeaponName())
-		return false;
-	if (!this->Pawn.GetAimPunchAngle())
-		return false;
-	if (!this->Pawn.GetShotsFired())
-		return false;
-	if (!this->Pawn.GetHealth())
-		return false;
-	if (!this->Pawn.GetTeamID())
-		return false;
-	if (!this->Pawn.GetFov())
-		return false;
-	if (!this->Pawn.GetSpotted())
-		return false;
-	if (!this->Pawn.GetFFlags())
-		return false;
-	if (!this->Pawn.GetAimPunchCache())
-		return false;
+	this->Pawn.GetCameraPos();
+	this->Pawn.GetPos();
+	this->Pawn.GetViewAngle();
+	this->Pawn.GetWeaponName();
+	//if (!this->Pawn->GetAimPunchAngle())
+	//	return false;
+	//if (!this->Pawn->GetShotsFired())
+	//	return false;
+	this->Pawn.GetHealth();
+	//this->Pawn.GetAmmo();
+	////if (!this->Pawn->GetMaxAmmo())
+	////	return false;
+	//this->Pawn.GetArmor();
+	this->Pawn.GetTeamID();
+	this->Pawn.GetFov();
+
+	//if (!this->Pawn.GetCameraPos())
+	//	return false;
+	//if (!this->Pawn.GetPos())
+	//	return false;
+	//if (!this->Pawn.GetViewAngle())
+	//	return false;
+	///*if (!*/this->Pawn.GetWeaponName();/*)*/
+	///*return false;*/
+	//if (!this->Pawn.GetAimPunchAngle())
+	//	return false;
+	//if (!this->Pawn.GetShotsFired())
+	//	return false;
+	//if (!this->Pawn.GetHealth())
+	//	return false;
+	//if (!this->Pawn.GetTeamID())
+	//	return false;
+	//if (!this->Pawn.GetFov())
+	//	return false;
+	//if (!this->Pawn.GetSpotted())
+	//	return false;
+	//if (!this->Pawn.GetFFlags())
+	//	return false;
+	//if (!this->Pawn.GetAimPunchCache())
+	//	return false;
 	if (!this->Pawn.BoneData.UpdateAllBoneData(PlayerPawnAddress))
 		return false;
 
@@ -160,7 +176,7 @@ DWORD64 PlayerController::GetPlayerPawnAddress()
 	if (!ProcessMgr.ReadMemory<DWORD64>(EntityPawnListEntry + 0x10 + 8 * ((Pawn & 0x7FFF) >> 9), EntityPawnListEntry))
 		return 0;
 
-	if (!ProcessMgr.ReadMemory<DWORD64>(EntityPawnListEntry + 0x78 * (Pawn & 0x1FF), EntityPawnAddress))
+	if (!ProcessMgr.ReadMemory<DWORD64>(EntityPawnListEntry + 112 * (Pawn & 0x1FF), EntityPawnAddress))
 		return 0;
 
 	return EntityPawnAddress;

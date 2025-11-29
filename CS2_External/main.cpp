@@ -36,35 +36,35 @@ int main()
 		return -1;
 	}
 
-	if (!fs::exists("offsets.json") || !fs::exists("client.dll.json"))
-	{
-		std::cout << "[ error ] client.dll.json or offsets.json not found!" << std::endl;
-		return -1;
-	}
-
-	if (!fs::exists("kmbox.json"))
-	{
-		std::cout << "[ error ] ckmbox.json not found!" << std::endl;
-		return -1;
-	}
-
-	KmBoxDataGetter kmbx("kmbox.json");
-
-	if (kmbx.type == "net") {
-		if (KmBoxMgr.InitDevice(kmbx.ip, kmbx.port, kmbx.uuid) != 0)
-		{
-			std::cout << "[ error ] KmBoxNet Initialize failed." << std::endl;
-			return -1;
-		}
-		KmBox::type = "net";
-	}
-	else if (kmbx.type == "b") {
-		if (kmBoxBMgr.init() != 0) {
-			std::cout << "[ error ] KmBoxB Initialize failed." << std::endl;
-			return -1;
-		}
-		KmBox::type = "b";
-	}
+	//if (!fs::exists("offsets.json") || !fs::exists("client.dll.json"))
+	//{
+	//	std::cout << "[ error ] client.dll.json or offsets.json not found!" << std::endl;
+	//	return -1;
+	//}
+	//
+	//if (!fs::exists("kmbox.json"))
+	//{
+	//	std::cout << "[ error ] ckmbox.json not found!" << std::endl;
+	//	return -1;
+	//}
+	//
+	//KmBoxDataGetter kmbx("kmbox.json");
+	//
+	//if (kmbx.type == "net") {
+	//	if (KmBoxMgr.InitDevice(kmbx.ip, kmbx.port, kmbx.uuid) != 0)
+	//	{
+	//		std::cout << "[ error ] KmBoxNet Initialize failed." << std::endl;
+	//		return -1;
+	//	}
+	//	KmBox::type = "net";
+	//}
+	//else if (kmbx.type == "b") {
+	//	if (kmBoxBMgr.init() != 0) {
+	//		std::cout << "[ error ] KmBoxB Initialize failed." << std::endl;
+	//		return -1;
+	//	}
+	//	KmBox::type = "b";
+	//}
 
 	if (!fs::directory_entry(MenuConfig::path).exists()) {
 		fs::create_directory(MenuConfig::path);

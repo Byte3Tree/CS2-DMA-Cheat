@@ -80,7 +80,9 @@ public:
 		std::vector<LPCSTR> args = {
 "",
 "-device", "pmem",
-"-remote", "rpc://insecure:192.168.8.110",
+"-remote", "rpc://insecure:192.168.1.2",
+//"-remote", "rpc://insecure:192.168.21.2",
+//"-remote", "rpc://insecure:192.168.8.110",
 "-disable-python",
 "-v",
 "-printf"
@@ -345,7 +347,8 @@ public:
 			}
 			if (!(gafAsyncKeyStateExport > 0x7FFFFFFFFFFF))
 				std::cout << "[Keys] Error: 1337" << std::endl;
-		} else {
+		}
+		else {
 			PVMMDLL_MAP_EAT eat_map = NULL;
 			PVMMDLL_MAP_EATENTRY eat_map_entry;
 			bool result = VMMDLL_Map_GetEATU(this->HANDLE, GetProcID_Keys((LPSTR)"winlogon.exe") | VMMDLL_PID_PROCESS_WITH_KERNELMEMORY, (LPSTR)"win32kbase.sys", &eat_map);
